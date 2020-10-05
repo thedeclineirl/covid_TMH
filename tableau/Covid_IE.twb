@@ -1,0 +1,1421 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20193.20.0614.2306                               -->
+<workbook original-version='18.1' source-build='2019.3.9 (20193.20.0614.2306)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <MapboxVectorStylesAndLayers />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='IE_by_county' inline='true' name='federated.0nc8xxi06encxz11e00b60pqyblh' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='IE_by_county' name='textscan.1t6io4519ajv3s1ceixlq0xj6v3z'>
+            <connection class='textscan' directory='C:/Users/GBKXN/OneDrive - Bayer/Personal/cv_data' filename='IE_by_county.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1t6io4519ajv3s1ceixlq0xj6v3z' name='IE_by_county.csv' table='[IE_by_county#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IE' separator=','>
+            <column datatype='date' name='Date' ordinal='0' />
+            <column datatype='integer' name='Case' ordinal='1' />
+            <column datatype='string' name='County' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[IE_by_county.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IE&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[IE_by_county.csv]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Case</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Case]</local-name>
+            <parent-name>[IE_by_county.csv]</parent-name>
+            <remote-alias>Case</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>County</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[County]</local-name>
+            <parent-name>[IE_by_county.csv]</parent-name>
+            <remote-alias>County</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Province' datatype='string' name='[County (group)]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
+        <calculation class='categorical-bin' column='[County]' new-bin='true'>
+          <bin default-name='false' value='&quot;Connacht&quot;'>
+            <value>&quot;Galway&quot;</value>
+            <value>&quot;Leitrim&quot;</value>
+            <value>&quot;Mayo&quot;</value>
+            <value>&quot;Roscommon&quot;</value>
+            <value>&quot;Sligo&quot;</value>
+          </bin>
+          <bin default-name='false' value='&quot;Leinster&quot;'>
+            <value>&quot;Carlow&quot;</value>
+            <value>&quot;Dublin&quot;</value>
+            <value>&quot;Kildare&quot;</value>
+            <value>&quot;Kilkenny&quot;</value>
+            <value>&quot;Laois&quot;</value>
+            <value>&quot;Longford&quot;</value>
+            <value>&quot;Louth&quot;</value>
+            <value>&quot;Meath&quot;</value>
+            <value>&quot;Offaly&quot;</value>
+            <value>&quot;Westmeath&quot;</value>
+            <value>&quot;Wexford&quot;</value>
+            <value>&quot;Wicklow&quot;</value>
+          </bin>
+          <bin default-name='false' value='&quot;Munster&quot;'>
+            <value>&quot;Clare&quot;</value>
+            <value>&quot;Cork&quot;</value>
+            <value>&quot;Kerry&quot;</value>
+            <value>&quot;Limerick&quot;</value>
+            <value>&quot;Tipperary&quot;</value>
+            <value>&quot;Waterford&quot;</value>
+          </bin>
+          <bin default-name='false' value='&quot;Ulster&quot;'>
+            <value>&quot;Cavan&quot;</value>
+            <value>&quot;Donegal&quot;</value>
+            <value>&quot;Monaghan&quot;</value>
+          </bin>
+        </calculation>
+      </column>
+      <column datatype='string' name='[County]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column-instance column='[Date]' derivation='Month' name='[mn:Date:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[County]' derivation='None' name='[none:County:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Date]' derivation='Week-Trunc' name='[twk:Date:ok]' pivot='key' type='ordinal' />
+      <group hidden='true' name='[Exclusions (County,MONTH(Date))]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:County:nk]' />
+          <groupfilter function='level-members' level='[mn:Date:ok]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.473881' measure-ordering='alphabetic' measure-percentage='0.526119' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[County (group)]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Carlow&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Ulster&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Munster&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Leinster&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Connacht&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[twk:Date:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>#2020-03-24 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-04-13 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-05-03 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-05-23 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-06-12 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-07-06 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-07-26 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-08-15 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-09-04 00:00:00#</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>#2020-09-24 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-03-15 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-03-16 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-04-05 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-04-25 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-05-15 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-06-04 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-06-24 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-07-18 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-08-07 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-08-27 00:00:00#</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>#2020-09-16 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-03-20 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-04-09 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-04-29 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-05-19 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-06-08 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-06-30 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-07-22 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-08-11 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-08-31 00:00:00#</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>#2020-09-20 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-03-28 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-04-17 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-05-07 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-05-27 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-06-16 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-07-10 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-07-30 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-08-19 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-09-08 00:00:00#</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>#2020-09-28 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-03-25 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-04-14 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-05-04 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-05-24 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-06-13 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-07-07 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-07-27 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-08-16 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-09-05 00:00:00#</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>#2020-09-25 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-03-21 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-04-10 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-04-30 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-05-20 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-06-09 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-07-01 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-07-23 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-08-12 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-09-01 00:00:00#</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>#2020-09-21 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-04-03 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-04-23 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-05-13 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-06-02 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-06-22 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-07-16 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-08-05 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-08-25 00:00:00#</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>#2020-09-14 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-03-17 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-04-06 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-04-26 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-05-16 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-06-05 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-06-27 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-07-19 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-08-08 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-08-28 00:00:00#</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>#2020-09-17 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-04-01 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-04-21 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-05-11 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-05-31 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-06-20 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-07-14 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-08-03 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-08-23 00:00:00#</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>#2020-09-12 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-03-22 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-04-11 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-05-01 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-05-21 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-06-10 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-07-04 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-07-24 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-08-13 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-09-02 00:00:00#</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>#2020-09-22 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-03-29 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-04-18 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-05-08 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-05-28 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-06-17 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-07-11 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-07-31 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-08-20 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-09-09 00:00:00#</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>#2020-09-29 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-03-30 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-04-19 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-05-09 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-05-29 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-06-18 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-07-12 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-08-01 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-08-21 00:00:00#</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>#2020-09-10 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-04-02 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-04-22 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-05-12 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-06-01 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-06-21 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-07-15 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-08-04 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-08-24 00:00:00#</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>#2020-09-13 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-04-04 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-04-24 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-05-14 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-06-03 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-06-23 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-07-17 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-08-06 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-08-26 00:00:00#</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>#2020-09-15 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-03-26 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-04-15 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-05-05 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-05-25 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-06-14 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-07-08 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-07-28 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-08-17 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-09-06 00:00:00#</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>#2020-09-26 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-03-23 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-04-12 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-05-02 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-05-22 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-06-11 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-07-05 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-07-25 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-08-14 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-09-03 00:00:00#</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>#2020-09-23 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-03-18 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-04-07 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-04-27 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-05-17 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-06-06 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-06-28 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-07-20 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-08-09 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-08-29 00:00:00#</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>#2020-09-18 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-03-31 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-04-20 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-05-10 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-05-30 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-06-19 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-07-13 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-08-02 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-08-22 00:00:00#</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>#2020-09-11 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-03-27 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-04-16 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-05-06 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-05-26 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-06-15 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-07-09 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-07-29 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-08-18 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-09-07 00:00:00#</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>#2020-09-27 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-03-19 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-04-08 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-04-28 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-05-18 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-06-07 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-06-29 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-07-21 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-08-10 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-08-30 00:00:00#</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>#2020-09-19 00:00:00#</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:County:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Kildare&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Carlow&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Sligo&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Donegal&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Wexford&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Limerick&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Kilkenny&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Dublin&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Wicklow&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Offaly&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Cavan&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Tipperary&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Meath&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Galway&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Longford&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Louth&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Monaghan&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Roscommon&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Laois&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Kerry&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Clare&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Waterford&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Mayo&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Leitrim&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Cork&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Westmeath&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Ireland&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IE_by_county' name='federated.0nc8xxi06encxz11e00b60pqyblh' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0nc8xxi06encxz11e00b60pqyblh'>
+            <column datatype='integer' name='[Case]' role='measure' type='quantitative' />
+            <column caption='Province' datatype='string' name='[County (group)]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
+              <calculation class='categorical-bin' column='[County]' new-bin='true'>
+                <bin default-name='false' value='&quot;Connacht&quot;'>
+                  <value>&quot;Galway&quot;</value>
+                  <value>&quot;Leitrim&quot;</value>
+                  <value>&quot;Mayo&quot;</value>
+                  <value>&quot;Roscommon&quot;</value>
+                  <value>&quot;Sligo&quot;</value>
+                </bin>
+                <bin default-name='false' value='&quot;Leinster&quot;'>
+                  <value>&quot;Carlow&quot;</value>
+                  <value>&quot;Dublin&quot;</value>
+                  <value>&quot;Kildare&quot;</value>
+                  <value>&quot;Kilkenny&quot;</value>
+                  <value>&quot;Laois&quot;</value>
+                  <value>&quot;Longford&quot;</value>
+                  <value>&quot;Louth&quot;</value>
+                  <value>&quot;Meath&quot;</value>
+                  <value>&quot;Offaly&quot;</value>
+                  <value>&quot;Westmeath&quot;</value>
+                  <value>&quot;Wexford&quot;</value>
+                  <value>&quot;Wicklow&quot;</value>
+                </bin>
+                <bin default-name='false' value='&quot;Munster&quot;'>
+                  <value>&quot;Clare&quot;</value>
+                  <value>&quot;Cork&quot;</value>
+                  <value>&quot;Kerry&quot;</value>
+                  <value>&quot;Limerick&quot;</value>
+                  <value>&quot;Tipperary&quot;</value>
+                  <value>&quot;Waterford&quot;</value>
+                </bin>
+                <bin default-name='false' value='&quot;Ulster&quot;'>
+                  <value>&quot;Cavan&quot;</value>
+                  <value>&quot;Donegal&quot;</value>
+                  <value>&quot;Monaghan&quot;</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='string' name='[County]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column-instance column='[County]' derivation='None' name='[none:County:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Case]' derivation='Sum' name='[sum:Case:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter from='&quot;Carlow&quot;' function='range' level='[none:County:nk]' to='&quot;Donegal&quot;' />
+              <groupfilter from='&quot;Galway&quot;' function='range' level='[none:County:nk]' to='&quot;Wicklow&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.0nc8xxi06encxz11e00b60pqyblh].[sum:Case:qk]' />
+              <color column='[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]' />
+              <text column='[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{79FD5287-CCEF-40B3-A9F0-4ACA2D900407}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='IE_by_county' name='federated.0nc8xxi06encxz11e00b60pqyblh' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0nc8xxi06encxz11e00b60pqyblh'>
+            <column datatype='integer' name='[Case]' role='measure' type='quantitative' />
+            <column caption='Province' datatype='string' name='[County (group)]' role='dimension' semantic-role='[County].[Name]' type='nominal'>
+              <calculation class='categorical-bin' column='[County]' new-bin='true'>
+                <bin default-name='false' value='&quot;Connacht&quot;'>
+                  <value>&quot;Galway&quot;</value>
+                  <value>&quot;Leitrim&quot;</value>
+                  <value>&quot;Mayo&quot;</value>
+                  <value>&quot;Roscommon&quot;</value>
+                  <value>&quot;Sligo&quot;</value>
+                </bin>
+                <bin default-name='false' value='&quot;Leinster&quot;'>
+                  <value>&quot;Carlow&quot;</value>
+                  <value>&quot;Dublin&quot;</value>
+                  <value>&quot;Kildare&quot;</value>
+                  <value>&quot;Kilkenny&quot;</value>
+                  <value>&quot;Laois&quot;</value>
+                  <value>&quot;Longford&quot;</value>
+                  <value>&quot;Louth&quot;</value>
+                  <value>&quot;Meath&quot;</value>
+                  <value>&quot;Offaly&quot;</value>
+                  <value>&quot;Westmeath&quot;</value>
+                  <value>&quot;Wexford&quot;</value>
+                  <value>&quot;Wicklow&quot;</value>
+                </bin>
+                <bin default-name='false' value='&quot;Munster&quot;'>
+                  <value>&quot;Clare&quot;</value>
+                  <value>&quot;Cork&quot;</value>
+                  <value>&quot;Kerry&quot;</value>
+                  <value>&quot;Limerick&quot;</value>
+                  <value>&quot;Tipperary&quot;</value>
+                  <value>&quot;Waterford&quot;</value>
+                </bin>
+                <bin default-name='false' value='&quot;Ulster&quot;'>
+                  <value>&quot;Cavan&quot;</value>
+                  <value>&quot;Donegal&quot;</value>
+                  <value>&quot;Monaghan&quot;</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='string' name='[County]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column-instance column='[County]' derivation='None' name='[none:County:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Case]' derivation='Sum' name='[sum:Case:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Day-Trunc' name='[tdy:Date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Date]' derivation='Week-Trunc' name='[twk:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]'>
+            <groupfilter function='member' level='[County (group)]' member='&quot;Connacht&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0nc8xxi06encxz11e00b60pqyblh].[twk:Date:qk]' field-type='quantitative' fold='true' scope='cols' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0nc8xxi06encxz11e00b60pqyblh].[sum:Case:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.0nc8xxi06encxz11e00b60pqyblh].[sum:Case:qk]' value='false' />
+            <format attr='break-on-special' field='[federated.0nc8xxi06encxz11e00b60pqyblh].[sum:Case:qk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.0nc8xxi06encxz11e00b60pqyblh].[sum:Case:qk]' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0nc8xxi06encxz11e00b60pqyblh].[tdy:Date:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0nc8xxi06encxz11e00b60pqyblh].[twk:Date:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0nc8xxi06encxz11e00b60pqyblh].[sum:Case:qk]</rows>
+        <cols>([federated.0nc8xxi06encxz11e00b60pqyblh].[tdy:Date:qk] + [federated.0nc8xxi06encxz11e00b60pqyblh].[twk:Date:qk])</cols>
+      </table>
+      <simple-id uuid='{44ECAA4C-B5A6-4820-B208-4369F68B9694}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[mn:Date:ok]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[tdy:Date:ok]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[tdy:Date:qk]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[yr:Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{2BA4F466-EA65-4052-A167-2BA7135B88F8}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='dropdown' param='[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]' type='filter' />
+            <card pane-specification-id='1' param='[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[:Measure Names]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[County (group)]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[none:County:nk]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[tdy:Date:qk]</field>
+            <field>[federated.0nc8xxi06encxz11e00b60pqyblh].[yr:Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{A431DF32-AE80-400D-85ED-1F995010B80A}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAADt0lEQVR4nO3X224bZRiF4W+8EU2sxgmhQVVpVCS4AJCQuFq4GK6BTYXYuRDiJHUbJY2T
+      emxzAEKN6jOKrWg9z9n8o5HWwbzSTLNcLpcFoTqbHgCbJACi9d68mHz1dc1Gzza1BdbuVgCz
+      30Z18/TpprbA2vkEIlpv5eGjR9WOx9V/+LAWV1fV9Hq1nM2qMxxWZ7Bd7Xhcne3tak/Pqun3
+      a3F+vu7d8E6sDKDpdOq9Tz+p7nC32rOzWs7b6jSD6j54UPMXk+oMBtX/6HF1d3bq+tvv1r0Z
+      3pmVASzn82pPTmpxNa12PK5aLKqappZtW+3paXW2tmr2+7Nqj/+5B3fUygDao6Oqqpo/n9w6
+      n41Gf59PpzWfTN56Du4aP8FEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDR
+      BEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA
+      0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQT
+      ANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBE
+      EwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0A
+      RBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBN
+      AEQTANEEQLTemxenX35RFx8fbmoLrN2tAL55f1i/NvNNbYG18wlEtJUB/PH9D3Xz6lWd/PzL
+      W/eWi2W9nk7/92GwDr1Vh9cXl3X840/VdJo6G43q/Pik5u2sur1+9bfu1dWLl/V6Oq3B3m51
+      ut168vln1TTNurfDf7YygA+eHNbl80ndGwzqxdGftbVzv3Y+PKjri8ua3dzUYG+3Bnu7tT0c
+      1tZw6OXnzloZwPDgoIYHB1VVtX/4+N/z+/v761kFa+InmGgCIJoAiCYAogmAaAIgmgCIJgCi
+      CYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYA
+      ogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgm
+      AKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKL9BatjjPlJ80LLAAAAAElFTkSu
+      QmCC
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
