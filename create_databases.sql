@@ -3,18 +3,20 @@ GO
 USE COVID_Figures;
 GO
 CREATE TABLE Daily_Cases
-CasesKey INT NOT NULL IDENTITY,
-Country VARCHAR(2),
+( CasesID INT NOT NULL IDENTITY,
+Country VARCHAR(20),
+County VARCHAR(10),
 FullDate DATE,
 New_Cases INT,
 DeNotified_Cases INT,
-PRIMARY KEY CasesKey;
+PRIMARY KEY (CasesID));
 
 CREATE TABLE Daily_Deaths
-DeathsKey INT NOT NULL IDENTITY,
-CountryID VARCHAR(2),
+( DeathsID INT NOT NULL IDENTITY,
+Country VARCHAR(20),
+County VARCHAR(10),
 FullDate DATE,
 New_Deaths INT,
 DeNotified_Deaths INT,
-PRIMARY KEY DeathsKey;
+PRIMARY KEY (DeathsID));
 
