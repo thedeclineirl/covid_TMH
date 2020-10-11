@@ -10,9 +10,9 @@ from datetime import datetime
 DEBUG = True
 
 # Declare Variables
-# export_name = 'out/'+datetime.now().strftime("%Y-%m-%d--%H-%M-%S")+'.csv'
 
-import_name='in\converted.csv'
+import_name = 'data\IE_by_county.csv'#'in\converted.csv'
+export_name = 'out\county_inserts.sql'
 
 if DEBUG:
     country = 'Ireland'
@@ -21,19 +21,55 @@ if DEBUG:
     cases = 5
     de_cases = 0
 
-export_header = 'INSERT INTO Daily_Cases (Country,County,FullDate,New_Cases) VALUES '
+export_header = 'INSERT INTO Daily_Cases (Country,County,FullDate,Cases) VALUES '
 
 ### import 
 def import_data(import_name):
     return [line.strip() for line in open(import_name, 'r')]
-    
+
+
+def fix_data(data):
+    data.pop(0) # drop headers from csv
+    results = []
+    for line in data:
+        x = line.split(',')
+        tofix = x[0].split('/')
+        date = '{2}-{1}-{0}'.format(tofix[0],tofix[1],tofix[2])
+        county = x[2].strip()
+        cases = x[1].strip()
+        if cases == 'N/A':
+            cases = 0
+            # print(cases)
+        # cases = cases.strip('≤')
+
+        result = '\'Ireland\',\'{0}\',\'{1}\',{2}'.format(county,date,cases)
+        results.append(result)
+    return results
+
+def export_sql_insert(data,headers, export_name):
+    outfile = open(export_name,'a')
+    # outfile.write(headers+' ')
+    x=0
+    for line in data:
+        if x ==0:
+            outfile.write(headers+' ')
+        # line = country, county, date, new cases,
+        outfile.write('('+line+')')
+        if x<999:
+            outfile.write(',\n')
+            x+=1
+        else:
+            outfile.write(';\n')
+            x=0
+    outfile.write(';\n\n')
+
+
+
 data = import_data(import_name)
-data.pop(0) # drop headers from csv
-
-
-
-
-
+cleaned = fix_data(data)
+# print(cleaned)
+export_sql_insert(cleaned,export_header,export_name)
+print('Completed')
 
 # INSERT INTO Daily_Cases (Country,County,FullDate,New_Cases) VALUES ('Ireland','Carlow','2020-09-30',5);
 ### ToDo
@@ -41,19 +77,8 @@ data.pop(0) # drop headers from csv
     # Convert Date to YYYY-MM-DD from DD/MM/YYYY
     # Get data in correct order
 
-def convert_date(data):
-    for line in data:
-
-
-def export_sql_insert(data, export_name):
-    outfile = open(export_name,'a')
-    outfile.write(headers+'\n')
-    for line in data:
-        # line = country, country, date, new cases,
-        outfile.write('('+line[0]+','+line[1]+','+line[2]+','+line[3]+');'+'\n')
-
-
-
+# def convert_date(data):
+#     for line in data:
 
 
 # for line in data 
